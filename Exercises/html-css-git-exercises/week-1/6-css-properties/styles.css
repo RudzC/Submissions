@@ -10,9 +10,11 @@ a {
 .message--unread {
   border-left: 2px solid blue;
 }
-.message__time--old {
-  opacity: 0.5;
-}
+
 .message {
-  margin-top: 30px;
+  line-height: 2rem;
+}
+
+.message:first-child {
+  opacity: 0.3;
 }

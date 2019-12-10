@@ -20,7 +20,7 @@ First, you need to create your own copy of these exercises. We call this a "fork
 
 ![Screenshot showing the button to copy the clone details](/assets/images/fork-copy-url.png)
 
-Next, you need to download your fork so that you have the files on your computer. Follow these steps to clone your fork. Open your Terminal and navigate to your directory for CodeYourFuture course work.
+Next, you need to download your fork so that you have the files on your computer. Follow these steps to clone your fork. Open your Terminal and navigate to your directory for your course work.
 
 ```
 cd <your-course-directory>
@@ -48,3 +48,14 @@ code .
 When you're done, you should see your code editor with the files open on the left, like the following screenshot.
 
 ![Screenshot showing the project open in your editor](/assets/images/fork-editor.png)
+
+## Sync forked repo with the Codi Tech Submission
+
+The Codi Tech Submission repo, is an active changes every day.
+To keep working on the latest Submission folders you need to do the followings:
+
+### Setup ( done once whenever you do a new clone )
+`git remote add upstream git@github.com:coditech/Submissions.git`
+
+### Updating ( Recurring step )
+`git pull upstream master`

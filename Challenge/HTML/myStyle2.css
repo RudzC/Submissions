@@ -1,0 +1,64 @@
+body {
+  background-color: black;
+}
+
+.container {
+  position: relative;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 50px;
+  color: rgb(125, 211, 125);
+  padding: 0;
+}
+
+.text-img {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  left: 50px;
+}
+
+.topNavbar {
+  overflow: hidden;
+  background-color: rgb(80, 80, 122);
+}
+
+.topNavbar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 30px 141px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topNavbar a:hover {
+  background-color: lightgray;
+  color: black;
+}
+
+.topNavbar a.active {
+  background-color: blue;
+  color: white;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.linkedPages {
+  width: 20%;
+  color: white;
+  left: 20px;
+}
+
+.article1 {
+  width: 50%;
+  float: right;
+  color: white;
+}
+
+.submitForm {
+  color: white;
+}

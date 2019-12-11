@@ -5,7 +5,7 @@ body {
 
 .topNavbar {
   overflow: hidden;
-  background-color: black;
+  background-color: blue;
 }
 
 .topNavbar a {
@@ -17,6 +17,14 @@ body {
   font-size: 20px;
 }
 
+p {
+  font-size: 16px;
+  font-family: monospace;
+}
+
+h4 {
+  font-family: monospace;
+}
 .topNavbar a:hover {
   background-color: lightgray;
   color: black;

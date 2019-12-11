@@ -15,4 +15,9 @@ ___
 ## Police Officer (2018 - present)
 * Dekwaneh Municipality:
     * I currently work there as a Traffic/Guard Police Officer, my responsibilities include security and maintaining the peace details.
+
+## Idea2Life (2019)
+* Beirut Digital Distrct:
+    * Internship for two month in UI/UX design, got to experience working with many software applications including balsamiq, zeplin, sketch and witness the production process for app programming and development.
 ___
+![NewTechImage](https://www.industryglobalnews24.com/images/why-automation-is-something-to-worry-about.jpeg)

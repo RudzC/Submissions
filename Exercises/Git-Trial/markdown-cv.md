@@ -16,4 +16,3 @@ ___
 * Dekwaneh Municipality:
     * I currently work there as a Traffic/Guard Police Officer, my responsibilities include security and maintaining the peace details.
 ___
-![Law Enforcement](https://www.lebanesemap.net/logos/1306759734isf.jpg)

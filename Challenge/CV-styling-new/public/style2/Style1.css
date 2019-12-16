@@ -1,0 +1,104 @@
+html,
+body* {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  position: relative;
+  float: left;
+  border: 1px solid blue;
+  border-style: groove;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+section > div {
+  grid: 1fr 1fr;
+  width: 70%;
+  clear: left;
+  border-left: 6px solid grey;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  float: right;
+}
+
+header div {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 125px;
+}
+
+figure {
+  float: right;
+  transform: rotate(-20deg);
+}
+
+h1 {
+  border-bottom: 2px solid grey;
+}
+
+h2 {
+  border-bottom: 2px solid grey;
+}
+
+.skill {
+  display: flex-box;
+  float: left;
+  background-color: blue;
+  border: 1px solid black;
+  width: 25%;
+  margin: 30px;
+}
+
+h3 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: italic;
+}
+
+h4 {
+  color: aqua;
+}
+
+.experience-date {
+  font-family: monospace;
+  font-size: 15px;
+  color: gray;
+  float: right;
+  clear: right;
+}
+
+.experience-location {
+  font-family: monospace;
+  font-size: 15px;
+  color: gray;
+  float: right;
+}
+
+.contact-value {
+  font-family: monospace;
+}
+
+a[href^="tel"] {
+  background: silver;
+}
+
+#hobbies {
+  font-family: monospace;
+  font-size: 15px;
+}
+
+#contact {
+  font-family: monospace;
+  font-size: 15px;
+}
+
+span {
+  display: flexbox;
+  float: right;
+}

@@ -13,7 +13,6 @@ p {
 }
 
 section > div {
-  grid: 1fr 1fr;
   width: 70%;
   clear: left;
   border-left: 6px solid grey;
@@ -96,9 +95,4 @@ a[href^="tel"] {
 #contact {
   font-family: monospace;
   font-size: 15px;
-}
-
-span {
-  display: flexbox;
-  float: right;
 }

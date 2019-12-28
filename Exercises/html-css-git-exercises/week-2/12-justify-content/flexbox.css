@@ -3,7 +3,23 @@
 }
 
 .countries--second .country {
+  margin: 10px;
   padding: 0.5em;
+  justify-content: space-evenly;
 }
 
 /* Add your own CSS code below */
+
+.countries--tall {
+  display: flex;
+  flex-direction: column;
+}
+
+.countries--fourth {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.countries--fourth .country {
+  margin: 15px;
+}

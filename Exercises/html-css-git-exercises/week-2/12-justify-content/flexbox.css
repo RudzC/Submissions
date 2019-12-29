@@ -2,24 +2,20 @@
   display: flex;
 }
 
-.countries--second .country {
-  margin: 10px;
+.countries--second {
   padding: 0.5em;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 /* Add your own CSS code below */
 
-.countries--tall {
-  display: flex;
+.countries--third {
+  justify-content: end;
   flex-direction: column;
 }
 
 .countries--fourth {
-  display: flex;
+  justify-content: space-around;
   flex-direction: column-reverse;
-}
-
-.countries--fourth .country {
-  margin: 15px;
 }

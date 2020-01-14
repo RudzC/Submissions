@@ -53,7 +53,7 @@ figcaption {
 }
 
 pre {
-  font-family: raleway;
+  font-family: Raleway;
 
   margin: 0;
 }
@@ -92,11 +92,12 @@ input {
 
 .temp {
   text-align: center;
+  font-size: 20px;
 }
 
 .hum {
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
 }
 /*  Search bar */
 

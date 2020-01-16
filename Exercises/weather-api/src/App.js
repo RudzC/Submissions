@@ -27,12 +27,20 @@ class App extends Component {
       <div className="app">
         <header className="app__header">
           <div className="inputHere">
-            <Search />
+            <Search sear={NewFakeWeather.city.name} />
           </div>
         </header>
         <main className="app__main">
-          <Forecast />
-          <FutureWeather />
+          <Forecast
+            temp={NewFakeWeather.list[0].main.temp}
+            humi={NewFakeWeather.list[0].main.humidity}
+            press={NewFakeWeather.list[0].main.pressure}
+          />
+          <div id="test">
+            {NewFakeWeather.list.map((item, value) => {
+              if (value > 0 && value < 8) return <FutureWeather list={item} />;
+            })}
+          </div>
         </main>
       </div>
     );

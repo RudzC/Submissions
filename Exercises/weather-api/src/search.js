@@ -1,10 +1,15 @@
 import React from "react";
 
-export default function Search() {
+export default function Search(props) {
   return (
     <>
       <form>
-        <input type="text" id="city" placeholder="City"></input>
+        <input
+          type="text"
+          id="city"
+          placeholder="City"
+          value={props.sear}
+        ></input>
         <input
           type="button"
           name="submit"

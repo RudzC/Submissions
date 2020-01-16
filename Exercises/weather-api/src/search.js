@@ -1,22 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default function Search(props) {
-  return (
-    <>
-      <form>
+export default class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      city: ""
+    };
+  }
+  changeCity = e => {
+    this.setState({ city: e.target.value });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.getCity(this.state.city);
+  };
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           id="city"
           placeholder="City"
-          value={props.sear}
-        ></input>
-        <input
-          type="button"
-          name="submit"
-          value="Find Weather"
-          id="find"
-        ></input>
+          onChange={this.changeCity}
+        />
+        <input type="submit" name="submit" value="Find Weather" id="find" />
       </form>
-    </>
-  );
+    );
+  }
 }

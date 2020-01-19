@@ -90,4 +90,25 @@ WHERE role = "Graphic Designer"
 
 Commit ("Joins")
 
-15.
+15.Find the person with the highest number of points in students
+SELECT name FROM students
+where points = (SELECT max(points) FROM students)
+
+16.Find the average of points in students
+SELECT name FROM students
+where points = (SELECT avg(points) FROM students)
+
+17.Find the number of students that have 500 points
+SELECT COUNT(*) FROM students
+where points = 500
+
+18.Find the names of students that contains 's'
+SELECT name FROM students
+where name like '%s%'
+
+19.Find all students based on the decreasing order of their points
+SELECT name FROM students
+where points
+ORDER BY points DESC
+
+commit ("Count & Filter")

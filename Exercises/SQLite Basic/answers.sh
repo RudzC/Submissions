@@ -42,3 +42,25 @@ set	Points = points - 30
 WHERE name = 'Alex'
 
 
+CREATE TABLE graduates (
+ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+Name TEXT NOT NULL UNIQUE,
+Age INTEGER,
+Gender TEXT,
+Points INTEGER,
+Graduation TEXT date)
+
+8.
+INSERT INTO graduates (name, Age, Gender, Points)
+SELECT name, Age, Gender, Points 
+FROM students WHERE name = 'Layal'
+
+9.
+UPDATE graduates 
+SET Graduation = '08/09/2018'
+WHERE ID = 1
+
+10.
+DELETE FROM students
+WHERE id = 4
+

@@ -45,6 +45,11 @@ function onDataReceived(text) {
     help();
   } else if (text === "lists\n") {
     lists();
+  } else if (arr[0] === "add") {
+    if (arr[2] != "") add(arr[2]);
+    else console.log("error");
+  } else if (arr[0] === "remove") {
+    remove(arr[2]);
   } else {
     unknownCommand(text);
   }
@@ -100,5 +105,22 @@ var tasks = ["Potato", "Tomato", "Carrot", "Cherry"];
 function lists() {
   for (let i = 0; i < tasks.length; i++) console.log(i + 1 + "- " + tasks[i]);
 }
+
+function add(x) {
+  tasks.push(x);
+  lists();
+}
+
+function remove(x) {
+  if (x == 0) {
+    tasks.splice(-1, 1);
+  } else if (x == 1) {
+    tasks.splice(0, 1);
+  } else if (x == 2) {
+    tasks.splice(1, 1);
+  }
+  lists();
+}
+
 // The following line starts the application
 startApp("Rudy Chakhroura");

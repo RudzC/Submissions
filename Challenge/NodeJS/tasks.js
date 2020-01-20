@@ -32,16 +32,25 @@ function startApp(name) {
  * @returns {void}
  */
 function onDataReceived(text) {
+  var arr = text.split(/(\s+)/);
   if (text === "quit\n" || text === "exit\n") {
     quit();
-  } else if (text === "hello\n") {
-    hello();
+  } else if (arr[0] === "hello") {
+    if (arr[2] == " ") {
+      hello(" ");
+    } else {
+      hello(arr[2]);
+    }
   } else if (text === "help\n") {
     help();
   } else {
     unknownCommand(text);
   }
 }
+
+/**
+ * lists all possible commands
+ */
 function help() {
   var list = "quit, exit, hello, help";
   console.log(list);
@@ -62,8 +71,8 @@ function unknownCommand(c) {
  *
  * @returns {void}
  */
-function hello() {
-  console.log("hello!");
+function hello(name) {
+  console.log("hello " + name + "!");
 }
 
 /**

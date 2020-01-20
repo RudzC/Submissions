@@ -52,7 +52,14 @@ function onDataReceived(text) {
  * lists all possible commands
  */
 function help() {
-  var list = "quit, exit, hello, help";
+  var list =
+    "Please enter one of these commands:" +
+    "\n" +
+    "quit/exit: exits the application." +
+    "\n" +
+    "hello: returns hello! or hello plus name." +
+    "\n" +
+    "help: lists all commands";
   console.log(list);
 }
 /**
@@ -67,7 +74,7 @@ function unknownCommand(c) {
 }
 
 /**
- * Says hello
+ * Say hello
  *
  * @returns {void}
  */

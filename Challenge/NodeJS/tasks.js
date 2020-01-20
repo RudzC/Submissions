@@ -43,6 +43,8 @@ function onDataReceived(text) {
     }
   } else if (text === "help\n") {
     help();
+  } else if (text === "lists\n") {
+    lists();
   } else {
     unknownCommand(text);
   }
@@ -94,5 +96,9 @@ function quit() {
   process.exit();
 }
 
+var tasks = ["Potato", "Tomato", "Carrot", "Cherry"];
+function lists() {
+  for (let i = 0; i < tasks.length; i++) console.log(i + 1 + "- " + tasks[i]);
+}
 // The following line starts the application
 startApp("Rudy Chakhroura");

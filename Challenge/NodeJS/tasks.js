@@ -66,7 +66,15 @@ function help() {
     "\n" +
     "hello: returns hello! or hello plus name." +
     "\n" +
-    "help: lists all commands";
+    "add <task>: adds a task to your input." +
+    "\n" +
+    "help: lists all commands." +
+    "\n" +
+    "remove: deletes last task from input." +
+    "\n" +
+    "remove 1: deletes the first task from input." +
+    "\n" +
+    "remove 2: deletes the second task from input.";
   console.log(list);
 }
 /**

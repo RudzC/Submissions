@@ -122,12 +122,14 @@ function add(x) {
 function remove(x) {
   if (x == 0) {
     tasks.splice(-1, 1);
+    lists();
   } else if (x == 1) {
     tasks.splice(0, 1);
+    lists();
   } else if (x == 2) {
     tasks.splice(1, 1);
-  }
-  lists();
+    lists();
+  } else console.log("remove number does not exist");
 }
 
 // The following line starts the application

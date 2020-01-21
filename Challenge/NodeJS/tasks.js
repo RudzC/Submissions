@@ -46,10 +46,13 @@ function onDataReceived(text) {
   } else if (text === "lists\n") {
     lists();
   } else if (arr[0] === "add") {
-    if (arr[2] != "") add(arr[2]);
+    if (arr[2] != "") add(arr);
     else console.log("error");
   } else if (arr[0] === "remove") {
     remove(arr[2]);
+  } else if (arr[0] === "edit") {
+    if (arr[2] != "") edit(arr[2], arr);
+    else console.log("error");
   } else {
     unknownCommand(text);
   }
@@ -62,19 +65,36 @@ function help() {
   var list =
     "Please enter one of these commands:" +
     "\n" +
-    "quit/exit: exits the application." +
+    "quit/exit:" +
+    "\t" +
+    "exits the application." +
     "\n" +
-    "hello: returns hello! or hello plus name." +
+    "hello:" +
+    "\t" +
+    "\t" +
+    "returns hello! or hello plus name." +
     "\n" +
-    "add <task>: adds a task to your input." +
+    "add <task>:" +
+    "\t" +
+    "adds a task to your input." +
     "\n" +
-    "help: lists all commands." +
+    "help:" +
+    "\t" +
+    "\t" +
+    "lists all commands." +
     "\n" +
-    "remove: deletes last task from input." +
+    "remove:" +
+    "\t" +
+    "\t" +
+    "deletes last task from input." +
     "\n" +
-    "remove 1: deletes the first task from input." +
+    "remove 1:" +
+    "\t" +
+    "deletes the first task from input." +
     "\n" +
-    "remove 2: deletes the second task from input.";
+    "remove 2:" +
+    "\t" +
+    "deletes the second task from input.";
   console.log(list);
 }
 /**
@@ -111,25 +131,51 @@ function quit() {
 
 var tasks = ["Potato", "Tomato", "Carrot", "Cherry"];
 function lists() {
-  for (let i = 0; i < tasks.length; i++) console.log(i + 1 + "- " + tasks[i]);
+  let result = "";
+  for (let i = 0; i < tasks.length; i++) {
+    result += `${i + 1}- ${tasks[i]}\n`;
+  }
+  console.log(result);
 }
 
 function add(x) {
-  tasks.push(x);
+  x.shift();
+  x.shift();
+  tasks.push(x.join("").replace(/(\r\n|\n|\r)/gm, ""));
   lists();
 }
 
 function remove(x) {
-  if (x == 0) {
-    tasks.splice(-1, 1);
-    lists();
-  } else if (x == 1) {
-    tasks.splice(0, 1);
-    lists();
-  } else if (x == 2) {
-    tasks.splice(1, 1);
+  if (x == 0 || x <= 2) {
+    tasks.splice(x - 1, 1);
     lists();
   } else console.log("remove number does not exist");
+}
+
+function edit(id, newtext) {
+  if (!parseInt(id)) {
+    newtext.shift();
+    newtext.shift();
+
+    newtext.pop();
+    newtext.pop();
+    console.log(id);
+    console.log(newtext);
+    tasks.splice(-1, 1, newtext.join("").replace(/(\r\n|\n|\r)/gm, ""));
+    lists();
+  } else {
+    newtext.shift();
+    newtext.shift();
+    newtext.shift();
+    newtext.shift();
+    tasks.splice(id - 1, 1, newtext.join("").replace(/(\r\n|\n|\r)/gm, ""));
+    lists();
+  }
+
+  // x.shift();
+  // x.shift();
+  // tasks.splice(-1,1, x.join("").replace(/(\r\n|\n|\r)/gm, ""));
+  // lists();
 }
 
 // The following line starts the application

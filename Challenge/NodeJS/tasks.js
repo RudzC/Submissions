@@ -53,6 +53,14 @@ function onDataReceived(text) {
   } else if (arr[0] === "edit") {
     if (arr[2] != "") edit(arr[2], arr);
     else console.log("error");
+  } else if (arr[0] === "check") {
+    if (arr[2] != "") {
+      check(arr[2]);
+    } else console.log("error");
+  } else if (arr[0] === "uncheck") {
+    if (arr[2] != "") {
+      uncheck(arr[2]);
+    } else console.log("error");
   } else {
     unknownCommand(text);
   }
@@ -142,13 +150,22 @@ function quit() {
   process.exit();
 }
 
-var tasks = ["Potato", "Tomato", "Carrot", "Cherry"];
+var tasks = [
+  { task: "Potato", done: true },
+  { task: "Tomato", done: false },
+  { task: "Carrot", done: false },
+  { task: "Cherry", done: true }
+];
 function lists() {
-  let result = "";
   for (let i = 0; i < tasks.length; i++) {
-    result += `${i + 1}- ${tasks[i]}\n`;
+    let checkMark = "";
+    if (tasks[i].done) {
+      checkMark = "✓";
+    } else {
+      checkMark = " ";
+    }
+    console.log("[" + checkMark + "] " + (i + 1) + "- " + tasks[i].task);
   }
-  console.log(result);
 }
 
 function add(x) {
@@ -191,5 +208,14 @@ function edit(id, newtext) {
   // lists();
 }
 
+function check(y) {
+  tasks[y - 1].done = true;
+  lists();
+}
+
+function uncheck(w) {
+  tasks[w - 1].done = false;
+  lists();
+}
 // The following line starts the application
 startApp("Rudy Chakhroura");

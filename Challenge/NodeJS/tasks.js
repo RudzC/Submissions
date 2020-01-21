@@ -94,7 +94,20 @@ function help() {
     "\n" +
     "remove 2:" +
     "\t" +
-    "deletes the second task from input.";
+    "deletes the second task from input." +
+    "\n" +
+    "edit:" +
+    "\t" +
+    "\t" +
+    "logs error" +
+    "\n" +
+    "edit <name>:" +
+    "\t" +
+    "edits the last task in array." +
+    "\n" +
+    "edit <number>:" +
+    "\t" +
+    "edits tasks by number in array.";
   console.log(list);
 }
 /**

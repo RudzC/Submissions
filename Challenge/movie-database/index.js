@@ -50,6 +50,32 @@ app.get("/movies/read", (req, res) => {
   res.json({ status: 200, data: movies });
 });
 
+app.get("/movies/read/by-date", (req, res) => {
+  function sortByYear(a, b) {
+    return a.year - b.year;
+  }
+  let moviesByYear = movies.sort(sortByYear);
+  res.json({ status: 200, data: moviesByYear });
+});
+
+app.get("/movies/read/by-rating", (req, res) => {
+  function sortByRate(a, b) {
+    return a.rating - b.rating;
+  }
+  let moviesByRate = movies.sort(sortByRate);
+  res.json({ status: 200, data: moviesByRate });
+});
+
+app.get("/movies/read/by-title", (req, res) => {
+  function sortByTitle(a, b) {
+    var titleA = a.title.toUpperCase();
+    var titleB = b.title.toUpperCase();
+    return titleA < titleB ? -1 : titleA > titleB ? 1 : 0;
+  }
+  let moviesByTitle = movies.sort(sortByTitle);
+  res.json({ status: 200, data: moviesByTitle });
+});
+
 app.get("/movies/update", (req, res) => {
   res.json({ message: "ok" });
 });

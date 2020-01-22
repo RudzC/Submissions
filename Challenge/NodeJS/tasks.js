@@ -8,7 +8,35 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
+const fs = require("fs");
+let myData = "";
+var tasks = [];
+
 function startApp(name) {
+  if (process.argv.length === 2) {
+    myData = "./database.json";
+  } else {
+    myData = process.argv[2];
+  }
+
+  if (fs.existsSync(myData)) {
+    fs.readFile(myData, (err, data) => {
+      if (err) {
+        throw err;
+      }
+      tasks = JSON.parse(data);
+    });
+  } else {
+    let data = JSON.stringify(tasks);
+    fs.appendFileSync(myData, data);
+    fs.readFileSync(myData, (err, data) => {
+      if (err) {
+        throw err;
+      }
+      tasks = JSON.parse(data);
+    });
+  }
+
   process.stdin.resume();
   process.stdin.setEncoding("utf8");
   process.stdin.on("data", onDataReceived);
@@ -34,6 +62,7 @@ function startApp(name) {
 function onDataReceived(text) {
   var arr = text.split(/(\s+)/);
   if (text === "quit\n" || text === "exit\n") {
+    persist(tasks);
     quit();
   } else if (arr[0] === "hello") {
     if (arr[2] == " ") {
@@ -146,16 +175,11 @@ function hello(name) {
  * @returns {void}
  */
 function quit() {
+  persist(tasks);
   console.log("Quitting now, goodbye!");
   process.exit();
 }
 
-var tasks = [
-  { task: "Potato", done: true },
-  { task: "Tomato", done: false },
-  { task: "Carrot", done: false },
-  { task: "Cherry", done: true }
-];
 function lists() {
   for (let i = 0; i < tasks.length; i++) {
     let checkMark = "";
@@ -171,7 +195,12 @@ function lists() {
 function add(x) {
   x.shift();
   x.shift();
-  tasks.push(x.join("").replace(/(\r\n|\n|\r)/gm, ""));
+  let newTaskDesc = x.join("").replace(/(\r\n|\n|\r)/gm, "");
+  let newTaskObject = {
+    task: newTaskDesc,
+    done: false
+  };
+  tasks.push(newTaskObject);
   lists();
 }
 
@@ -216,6 +245,11 @@ function check(y) {
 function uncheck(w) {
   tasks[w - 1].done = false;
   lists();
+}
+
+function persist(toBeSaved) {
+  let data = JSON.stringify(toBeSaved);
+  fs.writeFileSync(myData, data);
 }
 // The following line starts the application
 startApp("Rudy Chakhroura");

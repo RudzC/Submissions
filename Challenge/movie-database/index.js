@@ -123,8 +123,22 @@ app.get("/movies/read/id/:id?", (req, res) => {
   }
 });
 
-app.get("/movies/update", (req, res) => {
-  res.json({ message: "ok" });
+app.get("/movies/update/:id?", (req, res) => {
+  const id = req.params.id;
+  const title = req.query.title;
+  const year = req.query.year;
+  const rating = req.query.rating;
+  if (id <= movies.length && id > 0) {
+    movies[id].title = title;
+    movies[id].year = parseInt(year);
+    movies[id].rating = parseFloat(rating);
+    if (rating != 10 && rating > 10) {
+      res.json({ message: "please enter a rating less than" });
+    }
+    if (year.length !== 4) {
+      res.json({ message: "please enter a year of 4 digits" });
+    } else res.send(movies);
+  }
 });
 
 app.get("/movies/delete/:id?", (req, res) => {

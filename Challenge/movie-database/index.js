@@ -76,6 +76,19 @@ app.get("/movies/read/by-title", (req, res) => {
   res.json({ status: 200, data: moviesByTitle });
 });
 
+app.get("/movies/read/id/:id?", (req, res) => {
+  const id = req.params.id;
+  if (id <= movies.length && id > 0) {
+    res.json({ status: 200, data: movies[id - 1] });
+  } else {
+    res.send({
+      status: 404,
+      error: true,
+      message: "the movie " + id + " does not exist"
+    });
+  }
+});
+
 app.get("/movies/update", (req, res) => {
   res.json({ message: "ok" });
 });
@@ -90,6 +103,7 @@ const movies = [
   { title: "Brazil", year: 1985, rating: 8 },
   { title: "الإرهاب والكباب‎", year: 1992, rating: 6.2 }
 ];
+
 // make the server listen to requests
 app.listen(PORT, () => {
   console.log(`Server running at: http://localhost:${PORT}/`);

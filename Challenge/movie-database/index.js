@@ -42,8 +42,42 @@ app.get("/search", (req, res) => {
   }
 });
 
-app.get("/movies/create", (req, res) => {
-  res.json({ message: "ok" });
+app.get("/movies/add?", (req, res) => {
+  const rating = req.query.rating;
+  const year = req.query.year;
+  const title = req.query.title;
+
+  let errors = [];
+
+  if (!year) {
+    errors.push({ status: 403, error: true, message: "please enter a year" });
+  } else if (year.length !== 4) {
+    errors.push({ status: 403, error: true, message: "please enter 4 digits" });
+  } else if (!parseInt(year)) {
+    errors.push({
+      status: 403,
+      error: true,
+      message: "year should be a number"
+    });
+  } else if (!title) {
+    errors.push({ status: 403, error: true, message: "should enter a title" });
+  } else if (parseInt(title)) {
+    errors.push({
+      status: 403,
+      error: true,
+      message: "title should be a string"
+    });
+  }
+
+  if (errors.length > 0) {
+    res.json({ status: 403, error: true, messages: errors });
+  } else if (!rating) {
+    movies.push({ title: title, year: year, rating: 4 });
+    res.json({ title: title, year: year, rating: 4 });
+  } else {
+    movies.push({ title: title, year: year, rating: rating });
+    res.json({ title: title, year: year, rating: rating });
+  }
 });
 
 app.get("/movies/read", (req, res) => {
